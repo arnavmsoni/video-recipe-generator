@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Video → Recipe</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Video → Recipe</h1>
+    <form method="post">
+      <input type="text" name="url" placeholder="Paste YouTube URL" required>
+      <button type="submit">Get Recipe</button>
+    </form>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if recipe %}
+      <div class="recipe">{{ recipe | safe }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
